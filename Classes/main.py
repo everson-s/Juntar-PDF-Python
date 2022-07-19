@@ -1,17 +1,38 @@
-import PySimpleGUI as sg
+from __future__ import barry_as_FLUFL
+from tkinter import *
+import os
+from SelectPath import SelecionarPastaArquivos as sp
 
-#Criando o layout
+def Importar():
+    print("Importando arquivos...")
 
-layout = [[sg.Text("Digite o endereço da pasta:")],
-          [sg.InputText()],
-          [sg.OK("Juntar"), sg.Cancel()],
-          ]
+#Cria a janela
+app = Tk()
 
-Window = sg.Window("Juntando PDF", layout)
+app.title("Alfa PDF")
+app.geometry("500x300")
+app.configure(background="#dde")
 
-while True:
-    evento, valores = Window.read()
-    if evento in (sg.WIN_CLOSED, "Cancelar"):
-        break
+#Criando a barra de menus
+barraDeMenus = Menu(app)
 
-Window.close()
+menuArquivo = Menu(barraDeMenus, tearoff=0)
+menuArquivo.add_command(label="Selecionar pasta", command= sp)
+menuArquivo.add_command(label="Agrupar", command= Importar)
+menuArquivo.add_command(label="Separar", command= Importar)
+menuArquivo.add_separator()
+menuArquivo.add_command(label="Fechar", command= app.quit)
+
+menuOpcoes = Menu(barraDeMenus, tearoff=0)
+menuOpcoes.add_command(label="Abrir local", command= sp)
+menuOpcoes.add_command(label="Enviar para...", command= sp)
+
+menuSobre = Menu(barraDeMenus, tearoff=0)
+menuSobre.add_command(label="Alfa PDF", command=sp)
+
+barraDeMenus.add_cascade(label="Arquivo", menu=menuArquivo)
+barraDeMenus.add_cascade(label="Opções", menu=menuOpcoes)
+barraDeMenus.add_cascade(label="Sobre", menu=menuSobre)
+
+app.config(menu=barraDeMenus)
+app.mainloop()
