@@ -1,4 +1,5 @@
 import os
+from tkinter import *
 
 caminho = r"C:\Users\mosai\OneDrive\Documentos\GitHub\Juntar-PDF-Python\Classes"
 Arquivo = r"Exemplo.txt"
@@ -19,3 +20,4 @@ Arquivo = r"Exemplo.txt"
 
 def SelecionarPastaArquivos():
     print("Selecionou a pasta")
+
