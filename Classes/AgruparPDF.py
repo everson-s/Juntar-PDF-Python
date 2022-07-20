@@ -15,19 +15,15 @@ def SearchFilePDF(endereco):
 
 def MergePDFFiles(caminho, listPDF = []):
     
-    
+    MergePDF = py2.PdfFileMerger()
 
     for archives in listPDF:
 
-        for w in range(0, len(listPDF)-1):
+        ArchivePDF = open(caminho + "/" + archives,"rb")
 
-            ArchivePDF = open(caminho + "/" + archives,"rb")
+        dataArchivePDF = py2.PdfFileReader(ArchivePDF)
 
-            dataArchivePDF = py2.PdfFileReader(ArchivePDF)
-
-            MergePDF = py2.PdfFileMerger()
-
-            MergePDF.append(dataArchivePDF)
+        MergePDF.append(dataArchivePDF)
 
         #NumberPagesPDF = dataArchivePDF.numPages
 
