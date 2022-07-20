@@ -1,39 +1,28 @@
 from tkinter import *
 import os
 from SelectPath import *
+from windows import *
 
 pastaApp = os.path.dirname(__file__)
-
+SelecionaPas = "SelecionaPastas"
 def Importar():  
     print("Importando arquivos...")
 
 #Abre a janela SelecionaPastas.py
 def SelecionaPastas():
     exec(open(pastaApp+"\\SelecionaPastas.py").read())
+    
 
 #Cria a janela
 app = Tk()
 
 window_width = 500
 window_height = 300
-
 app.title("Alfa PDF")
 app.configure(background="#dde")
+CentralizarJanela(window_width,window_height,app)
 
-def center_screen():
-    global screen_height, screen_width, x_cordinate, y_cordinate
-
-    screen_width = app.winfo_screenwidth()
-    screen_height = app.winfo_screenheight()
-
-    x_cordinate = int((screen_width/2) - (window_width/2))
-    y_cordinate = int((screen_height/2) - (window_height/2))
-
-    app.geometry("{}x{}+{}+{}".format(window_width, window_height, x_cordinate, y_cordinate))
-
-center_screen()
-
-#Criando a barra de menus
+#==========Criando a barra de menu==================
 barraDeMenus = Menu(app)
 
 menuArquivo = Menu(barraDeMenus, tearoff=0)

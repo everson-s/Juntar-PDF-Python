@@ -1,6 +1,5 @@
 import os
 import PyPDF2 as py2
-from cv2 import MergeRobertson
 
 #Cria uma lista
 FileNamesPDF =[]
@@ -35,15 +34,7 @@ def MergePDFFiles(caminho, listPDF = []):
 
     MergePDF.write(caminho + "/"+"Novo_arquivo.pdf")
 
-    print("Arquivo criado com sucesso!")
-
-
-
-        
-
-
-
-
+    print("\nArquivo criado com sucesso!")
 
 
 caminho = input("Digite o caminho do diretório onde estão armazenados os arquivos em PDF: ")
